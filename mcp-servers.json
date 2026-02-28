@@ -1,0 +1,25 @@
+{
+    "servers": [
+        {
+            "name": "filesystem",
+            "transport": "stdio",
+            "command": "npx",
+            "args": [
+                "-y",
+                "@modelcontextprotocol/server-filesystem",
+                "./data"
+            ],
+            "env": {},
+            "description": "Local filesystem access to the ./data directory."
+        },
+        {
+            "name": "zapier",
+            "transport": "streamable_http",
+            "url": "https://mcp.zapier.com/api/v1/connect",
+            "env": {
+                "Authorization": "Bearer ${ZAPIER_MCP_API_KEY}"
+            },
+            "description": "Zapier MCP client for executing automated workflows in connected apps."
+        }
+    ]
+}
